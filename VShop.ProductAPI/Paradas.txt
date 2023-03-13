@@ -1,0 +1,7 @@
+﻿dotnet ef migrations add <nome-migration>
+
+dotnet ef migrations remove
+
+dotnet ef database update
+
+ViewBag é um objeto dinâmico com propriedades criadas no controlador e que é acessível na View
