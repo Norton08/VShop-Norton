@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VShop.ProductAPI", "VShop.ProductAPI\VShop.ProductAPI.csproj", "{540C2C62-93A6-4F22-B168-D20046C2C7B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VShop.ProductApi", "VShop.ProductAPI\VShop.ProductApi.csproj", "{540C2C62-93A6-4F22-B168-D20046C2C7B7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VShop.Web", "VShop.Web\VShop.Web.csproj", "{B4713C02-80FC-44EC-BB6B-4631CECBAA6A}"
 EndProject
@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{612D
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VShop.IdentityServer", "VShop.IdentityServer\VShop.IdentityServer.csproj", "{40689E25-0592-4A36-99C9-0E1E295903F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VShop.CartApi", "VShop.CartApi\VShop.CartApi.csproj", "{753AC55D-E197-4F84-9C8D-7D1588312353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,10 @@ Global
 		{40689E25-0592-4A36-99C9-0E1E295903F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40689E25-0592-4A36-99C9-0E1E295903F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40689E25-0592-4A36-99C9-0E1E295903F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{753AC55D-E197-4F84-9C8D-7D1588312353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{753AC55D-E197-4F84-9C8D-7D1588312353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{753AC55D-E197-4F84-9C8D-7D1588312353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{753AC55D-E197-4F84-9C8D-7D1588312353}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 		{540C2C62-93A6-4F22-B168-D20046C2C7B7} = {612DDDEF-6900-4381-8593-A8502683688D}
 		{B4713C02-80FC-44EC-BB6B-4631CECBAA6A} = {861CE280-A9C2-4B77-B400-81FBFBEA04C6}
 		{40689E25-0592-4A36-99C9-0E1E295903F1} = {612DDDEF-6900-4381-8593-A8502683688D}
+		{753AC55D-E197-4F84-9C8D-7D1588312353} = {612DDDEF-6900-4381-8593-A8502683688D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B643C4E-2D90-4EE3-86FD-105AF67FF8E1}

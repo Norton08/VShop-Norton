@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
-using VShop.ProductAPI.Context;
-using VShop.ProductAPI.Repositories;
-using VShop.ProductAPI.Services;
+using VShop.ProductApi.Context;
+using VShop.ProductApi.Repositories;
+using VShop.ProductApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

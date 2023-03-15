@@ -1,4 +1,4 @@
-﻿namespace VShop.ProductAPI.Models;
+﻿namespace VShop.ProductApi.Models;
 
 public class Category
 {

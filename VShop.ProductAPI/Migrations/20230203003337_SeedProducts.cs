@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace VShop.ProductAPI.Migrations
+namespace VShop.ProductApi.Migrations
 {
     /// <inheritdoc />
     public partial class SeedProducts : Migration

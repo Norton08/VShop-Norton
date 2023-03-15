@@ -1,9 +1,9 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using VShop.ProductAPI.Models;
+using VShop.ProductApi.Models;
 
-namespace VShop.ProductAPI.DTOs
+namespace VShop.ProductApi.DTOs
 {
     public class ProductDTO
     {

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using VShop.ProductAPI.DTOs;
-using VShop.ProductAPI.Models;
-using VShop.ProductAPI.Repositories;
+using VShop.ProductApi.DTOs;
+using VShop.ProductApi.Models;
+using VShop.ProductApi.Repositories;
 
-namespace VShop.ProductAPI.Services;
+namespace VShop.ProductApi.Services;
 
 public class ProductService : IProductService
 {

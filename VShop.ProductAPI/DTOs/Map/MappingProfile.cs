@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using VShop.ProductAPI.Models;
+using VShop.ProductApi.Models;
 
-namespace VShop.ProductAPI.DTOs.Map
+namespace VShop.ProductApi.DTOs.Map
 {
     public class MappingProfile : Profile
     {

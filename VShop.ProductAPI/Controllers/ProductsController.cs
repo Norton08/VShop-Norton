@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using VShop.ProductAPI.DTOs;
-using VShop.ProductAPI.Services;
+using VShop.ProductApi.DTOs;
+using VShop.ProductApi.Services;
 using VShop.Web.Roles;
 
-namespace VShop.ProductAPI.Controllers;
+namespace VShop.ProductApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

@@ -1,6 +1,6 @@
-﻿using VShop.ProductAPI.DTOs;
+﻿using VShop.ProductApi.DTOs;
 
-namespace VShop.ProductAPI.Services;
+namespace VShop.ProductApi.Services;
 
 public interface IProductService
 {

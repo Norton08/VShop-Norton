@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using VShop.ProductAPI.Context;
+using VShop.ProductApi.Context;
 
 #nullable disable
 
-namespace VShop.ProductAPI.Migrations
+namespace VShop.ProductApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -18,7 +18,7 @@ namespace VShop.ProductAPI.Migrations
                 .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("VShop.ProductAPI.Models.Category", b =>
+            modelBuilder.Entity("VShop.ProductApi.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace VShop.ProductAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("VShop.ProductAPI.Models.Product", b =>
+            modelBuilder.Entity("VShop.ProductApi.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,9 +84,9 @@ namespace VShop.ProductAPI.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("VShop.ProductAPI.Models.Product", b =>
+            modelBuilder.Entity("VShop.ProductApi.Models.Product", b =>
                 {
-                    b.HasOne("VShop.ProductAPI.Models.Category", "Category")
+                    b.HasOne("VShop.ProductApi.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -95,7 +95,7 @@ namespace VShop.ProductAPI.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("VShop.ProductAPI.Models.Category", b =>
+            modelBuilder.Entity("VShop.ProductApi.Models.Category", b =>
                 {
                     b.Navigation("Products");
                 });
