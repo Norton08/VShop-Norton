@@ -16,7 +16,7 @@ public class CartController : ControllerBase
         _repository = repository;
     }
 
-    [HttpGet("getcart/{id}")]
+    [HttpGet("getcart/{userId}")]
     public async Task<ActionResult<CartDTO>> GetByUserId(string userId)
     {
         var cartDto = await _repository.GetCartByUserIdAsync(userId);
@@ -47,11 +47,12 @@ public class CartController : ControllerBase
     }
 
     [HttpDelete("deletecart/{id}")]
-    public async Task<ActionResult<CartDTO>> DeleteCart(int id)
+    public async Task<ActionResult<bool>> DeleteCart(int id)
     {
         var status = await _repository.DeleteItemCartAsync(id);
+
         if (!status)
-            return NotFound();
+            return BadRequest();
         return Ok(status);
     }
 }
