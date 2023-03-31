@@ -42,6 +42,8 @@ public class CartRepository : ICartRepository
                         cartItem.CartHeaderId).Count();
 
             _context.CartItems.Remove(cartItem);
+            await _context.SaveChangesAsync();
+
 
             if (total == 1)
             {
@@ -49,8 +51,8 @@ public class CartRepository : ICartRepository
                                                     c => c.Id == cartItem.CartHeaderId);
 
                 _context.CartHeaders.Remove(cartHeaderRemove);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
             return true;
         }
         catch (Exception)
