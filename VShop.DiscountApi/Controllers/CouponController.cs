@@ -18,7 +18,6 @@ public class CouponController : ControllerBase
     }
 
     [HttpGet("{couponCode}")]
-    [Authorize]
     public async Task<ActionResult<CouponDTO>> GetDiscountCouponByCode(string couponCode)
     {
         var coupon = await _repository.GetCouponByCode(couponCode);

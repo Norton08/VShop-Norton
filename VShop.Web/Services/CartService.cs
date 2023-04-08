@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Headers;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using VShop.Web.Models;
@@ -106,10 +107,39 @@ public class CartService : ICartService
         return false;
     }
 
-    private static void PutTokenInHeaderAuthorization(string token, HttpClient client)
+    public async Task<bool> ApplyCouponAsync(CartViewModel model, string token)
     {
-        client.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer", token);
+        var client = _clientFactory.CreateClient("CartApi");
+        PutTokenInHeaderAuthorization(token, client);
+
+        StringContent content = new StringContent(JsonSerializer.Serialize(model),
+                                            Encoding.UTF8, "application/json");
+
+        using(var response = await client.PostAsync($"{apiEndpoint}/applycoupon/", content))
+        {
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public async Task<bool> RemoveCouponAsync(string userId, string token)
+    {
+        var client = _clientFactory.CreateClient("CartApi");
+        PutTokenInHeaderAuthorization(token, client);
+
+        using (var response = await client.DeleteAsync($"{apiEndpoint}/deletecoupon/{userId}"))
+        {
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public Task<bool> ClearCartAsync(string userId, string token)
@@ -117,18 +147,15 @@ public class CartService : ICartService
         throw new NotImplementedException();
     }
 
-    public Task<bool> ApplyCouponAsync(CartViewModel model, string couponCode, string token)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> RemoveCouponAsync(string userId, string token)
-    {
-        throw new NotImplementedException();
-    }
 
     public Task<CartViewModel> CheckoutAsync(CartHeaderViewModel cartHeader, string token)
     {
         throw new NotImplementedException();
+    }
+
+    private static void PutTokenInHeaderAuthorization(string token, HttpClient client)
+    {
+        client.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", token);
     }
 }
