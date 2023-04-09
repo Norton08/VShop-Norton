@@ -13,6 +13,7 @@ public class CartService : ICartService
     private readonly JsonSerializerOptions? _options;
     private const string apiEndpoint = "/api/Cart";
     private CartViewModel cartVM = new CartViewModel();
+    private CartHeaderViewModel cartHeaderVM = new CartHeaderViewModel();
 
     public CartService(IHttpClientFactory clientFactory)
     {
@@ -147,10 +148,29 @@ public class CartService : ICartService
         throw new NotImplementedException();
     }
 
-
-    public Task<CartViewModel> CheckoutAsync(CartHeaderViewModel cartHeader, string token)
+    public async Task<CartHeaderViewModel> CheckoutAsync(CartHeaderViewModel model, string token)
     {
-        throw new NotImplementedException();
+        var client = _clientFactory.CreateClient("CartApi");
+        PutTokenInHeaderAuthorization(token, client);
+
+        StringContent content = new StringContent(JsonSerializer.Serialize(model),
+                                        Encoding.UTF8, "application/json");
+
+        using(var response = await client.PostAsync($"{apiEndpoint}/checkout", content))
+        {
+            if (response.IsSuccessStatusCode)
+            {
+                var apiResponse = await response.Content.ReadAsStreamAsync();
+                model = await JsonSerializer
+                    .DeserializeAsync<CartHeaderViewModel>
+                    (apiResponse, _options);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        return model;
     }
 
     private static void PutTokenInHeaderAuthorization(string token, HttpClient client)
@@ -158,4 +178,5 @@ public class CartService : ICartService
         client.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", token);
     }
+
 }

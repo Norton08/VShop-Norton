@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using VShop.Web.Models;
 using VShop.Web.Services.Contracts;
 
@@ -15,6 +16,33 @@ public class CartController : Controller
     {
         _cartService = cartService;
         _couponService = couponService;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Checkout()
+    {
+        CartViewModel? cartVm = await GetCartByUser();
+
+        return View(cartVm);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Checkout(CartViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var result = await _cartService.CheckoutAsync(model.CartHeader, await GetAccessToken());
+
+            if (result is not null)
+                return RedirectToAction(nameof(CheckoutCompleted));
+        }
+        return View(model);
+    }
+
+    [HttpGet]
+    public IActionResult CheckoutCompleted()
+    {
+        return View();
     }
 
     [HttpPost]
